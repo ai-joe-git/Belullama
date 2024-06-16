@@ -34,28 +34,33 @@ Belullama offers the following key features:
 
 To install Belullama on your CasaOS server, follow these steps:
 
-Access your CasaOS server:
+**Access your CasaOS server**:
+
 Open your internet browser.
 Enter the address shown after completing the CasaOS installation [2].
 Press Enter to access the CasaOS web interface.
 
-Install a customized app:
+**Install a customized app**:
+
 In the CasaOS web interface, look for a button with a "+" symbol [2].
 Click on the "+" button to open a menu.
 From the menu, select "Install a customized app" [2].
 This will allow you to install an app using a Docker file.
 
-Download the Docker file:
+**Download the Docker file**:
+
 Once you have selected "Install a customized app," you will be prompted to choose a Docker file [2].
 Download the Docker file from the provided link [2].
 Make sure to save the Docker file in a location that you can easily access later.
 
-Install the customized app:
+**Install the customized app**:
+
 After downloading the Docker file, go back to the CasaOS web interface.
 Click on the "Install" button to start the installation process [2].
 Follow any additional prompts or instructions that may appear during the installation.
 
-Verify the installation:
+**Verify the installation**:
+
 Once the installation is complete, you should see the app listed in the CasaOS dashboard [2].
 You can click on the app to access its web interface and start using it.
 
