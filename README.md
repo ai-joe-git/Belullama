@@ -1,4 +1,4 @@
-![Image Description](BelullamaLogo.png)
+![Image Description]([BelullamaLogo.png](https://github-production-user-asset-6210df.s3.amazonaws.com/3325447/270508355-080f3a72-e2fd-4741-8070-ae79a06f943f.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240616%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240616T102915Z&X-Amz-Expires=300&X-Amz-Signature=9212aa53240e7548d2d4f7930613c30360a9f43a8d3dd20f58e48dd499ac0fd1&X-Amz-SignedHeaders=host&actor_id=88169436&key_id=0&repo_id=658928958))
 
 # Belullama
 Ollama + Open WebUI = Belullama
