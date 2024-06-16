@@ -1,7 +1,7 @@
 ![Image Description](Belullama.svg)
 
 # Belullama
-Ollama + Open WebUI = Belullama
+CasaOS + Ollama + Open WebUI = Belullama
 
 # Belullama
 
