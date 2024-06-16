@@ -1,0 +1,82 @@
+name: quizzical_jornack
+services:
+  webui:
+    cpu_shares: 90
+    command: []
+    depends_on:
+      ollama:
+        condition: service_started
+        required: true
+    deploy:
+      resources:
+        limits:
+          memory: 15771M
+    environment:
+      - OLLAMA_BASE_URL=http://172.17.0.3:11434
+    expose:
+      - 8080/tcp
+    image: ghcr.io/open-webui/open-webui:latest
+    labels:
+      icon: https://github.com/jmorganca/ollama/assets/3325447/080f3a72-e2fd-4741-8070-ae79a06f943f
+    ports:
+      - target: 8080
+        published: "8080"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /
+        target: /app/backend/data
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+    container_name: ""
+    hostname: ""
+  ollama:
+    cpu_shares: 90
+    command:
+      - serve
+    deploy:
+      resources:
+        limits:
+          memory: 15771M
+    expose:
+      - 11434/tcp
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - ollama --version || exit 1
+    image: ollama/ollama:latest
+    labels:
+      icon: https://github.com/jmorganca/ollama/assets/3325447/080f3a72-e2fd-4741-8070-ae79a06f943f
+    ports:
+      - target: 11434
+        published: "11434"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /
+        target: /root/.ollama
+    devices: []
+    cap_add: []
+    environment: []
+    network_mode: bridge
+    privileged: false
+    container_name: ""
+    hostname: ""
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://github.com/jmorganca/ollama/assets/3325447/080f3a72-e2fd-4741-8070-ae79a06f943f
+  index: /
+  is_uncontrolled: false
+  port_map: "11434"
+  scheme: http
+  store_app_id: quizzical_jornack
+  tips:
+    custom: sudo lsof -i :11434
+  title:
+    custom: Belullama
