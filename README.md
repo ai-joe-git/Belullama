@@ -34,37 +34,37 @@ Belullama offers the following key features:
 
 To install Belullama on your CasaOS server, follow these steps:
 
-**Access your CasaOS server**:
+- **Access your CasaOS server**:
 
 Open your internet browser.
-Enter the address shown after completing the CasaOS installation [2].
+Enter the address shown after completing the CasaOS installation.
 Press Enter to access the CasaOS web interface.
 
-**Install a customized app**:
+- **Install a customized app**:
 
-In the CasaOS web interface, look for a button with a "+" symbol [2].
+In the CasaOS web interface, look for a button with a "+" symbol.
 Click on the "+" button to open a menu.
-From the menu, select "Install a customized app" [2].
+From the menu, select "Install a customized app".
 This will allow you to install an app using a Docker file.
 
-**Download the Docker file**:
+- **Download the Docker file**:
 
-Once you have selected "Install a customized app," you will be prompted to choose a Docker file [2].
-Download the Docker file from the provided link [2].
+Once you have selected "Install a customized app," you will be prompted to choose a Docker file.
+Download the Docker file from the provided link.
 Make sure to save the Docker file in a location that you can easily access later.
 
-**Install the customized app**:
+- **Install the customized app**:
 
 After downloading the Docker file, go back to the CasaOS web interface.
-Click on the "Install" button to start the installation process [2].
+Click on the "Install" button to start the installation process.
 Follow any additional prompts or instructions that may appear during the installation.
 
-**Verify the installation**:
+- **Verify the installation**:
 
-Once the installation is complete, you should see the app listed in the CasaOS dashboard [2].
+Once the installation is complete, you should see the app listed in the CasaOS dashboard.
 You can click on the app to access its web interface and start using it.
 
-Please note that the specific steps may vary slightly depending on the version of CasaOS you are using. It's always a good idea to refer to the official CasaOS documentation or seek support from the CasaOS development team for any specific issues or questions you may have.
+**Please note that the specific steps may vary slightly depending on the version of CasaOS you are using. It's always a good idea to refer to the official CasaOS documentation or seek support from the CasaOS development team for any specific issues or questions you may have.**
 
 ## Usage
 
@@ -86,13 +86,3 @@ Contributions to Belullama are welcome! If you have any ideas, bug reports, or f
 
 Belullama is released under the [MIT License](https://opensource.org/licenses/MIT). Please refer to the LICENSE file in the repository for more details.
 
-## Sources
-
-1. [GitHub - ollama/ollama: Get up and running with Llama 3, Mistral, Gemma, and other large language models.](https://github.com/ollama/ollama)
-2. [GitHub - eudard/CasaOS-LocalAI-AppStore: A CasaOS custom Appstore containing some images to run some LLM like LLama on your own local server.](https://github.com/eudard/CasaOS-LocalAI-AppStore)
-
----
-Learn more:
-1. [GitHub - ollama/ollama: Get up and running with Llama 3, Mistral, Gemma, and other large language models.](https://github.com/ollama/ollama)
-2. [GitHub - eudard/CasaOS-LocalAI-AppStore: A CasaOS custom Appstore containing some images to run some LLM like LLama on your own local server.](https://github.com/eudard/CasaOS-LocalAI-AppStore)
-3. [GitHub - ollama-webui/ollama-webui-lite: Ollama WebUI Stripped 🦙](https://github.com/ollama-webui/ollama-webui-lite)
