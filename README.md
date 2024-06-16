@@ -52,7 +52,7 @@ This will allow you to install an app using a Docker file.
 - **Download the Docker file**:
 
 Once you have selected "Install a customized app," you will be prompted to choose a Docker file.
-Download the Docker file from the provided link.
+Download the Docker file from the provided link [here](https://github.com/ai-joe-git/Belullama/blob/main/Belullama.yaml).
 Make sure to save the Docker file in a location that you can easily access later.
 
 - **Install the customized app**:
