@@ -7,7 +7,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 7807M
+          memory: 15775M
     expose:
       - 11434/tcp
     healthcheck:
@@ -43,7 +43,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 7807M
+          memory: 15775M
     environment:
       - OLLAMA_BASE_URL=http://172.17.0.3:11434
     expose:
