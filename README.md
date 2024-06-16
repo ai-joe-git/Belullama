@@ -90,8 +90,9 @@ requests to contribute code improvements or new features.
 Belullama is released under the [MIT License](https://opensource.org/licenses/MIT). Please refer to the LICENSE file in the repository for more details.
 
 
-Sources
-GitHub - ollama/ollama: Get up and running with Llama 3, Mistral, Gemma, and other large language models.
-GitHub - IceWhaleTech/CasaOS: CasaOS - A simple, easy-to-use, elegant open-source Personal Cloud system.
-GitHub - open-webui/open-webui: User-friendly WebUI for LLMs (Formerly Ollama WebUI)
+## Sources
+
+- [Ollama](https://ollama.com) Get up and running with Llama 3, Mistral, Gemma, and other large language models.
+- [CasaOS](https://casaos.io) A simple, easy-to-use, elegant open-source Personal Cloud system.
+- [Open-WebUI](https://openwebui.com) User-friendly WebUI for LLMs (Formerly Ollama WebUI)
 
