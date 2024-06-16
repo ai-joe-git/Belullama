@@ -1,4 +1,4 @@
-![Image Description](path/to/BelullamaLogo.png)
+![Image Description](BelullamaLogo.png)
 
 # Belullama
 Ollama + Open WebUI = Belullama
