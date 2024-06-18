@@ -48,7 +48,7 @@ services:
       - OLLAMA_BASE_URL=http://172.17.0.3:11434
     expose:
       - 8080/tcp
-    image: ghcr.io/ai-joe-git/open-webui:latest
+    image: ghcr.io/open-webui/open-webui:latest
     labels:
       icon: https://github.com/jmorganca/ollama/assets/3325447/080f3a72-e2fd-4741-8070-ae79a06f943f
     ports:
@@ -67,8 +67,8 @@ services:
     container_name: ""
     hostname: ""
 x-casaos:
-  author: ai-joe-git
-  category: AI
+  author: self
+  category: self
   hostname: ""
   icon: https://github.com/jmorganca/ollama/assets/3325447/080f3a72-e2fd-4741-8070-ae79a06f943f
   index: /
