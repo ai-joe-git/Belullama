@@ -45,7 +45,7 @@ services:
         limits:
           memory: 15775M
     environment:
-      - OLLAMA_BASE_URL=http://172.17.0.3:11434
+      - OLLAMA_BASE_URL=http://172.17.0.1:11434
     expose:
       - 8080/tcp
     image: ghcr.io/ai-joe-git/open-webui:latest
