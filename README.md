@@ -34,6 +34,11 @@ Belullama offers the following key features:
 
 - **Offline Operation**: Belullama operates entirely offline, ensuring data privacy and security. You can use it without relying on external services or internet connectivity.
 
+## Screenshots
+
+![Screenshot 1](screenshot-1.png)
+![Screenshot 2](screenshot-2.png)
+
 ## Installation
 
 To install Belullama on your CasaOS server, follow these steps:
