@@ -5,7 +5,7 @@ CasaOS + Ollama + Open WebUI = Belullama
 
 # Belullama
 
-![Image Description](thumbnail.png)
+![Image Description](thumbnail.jpg)
 
 Belullama is a powerful app for CasaOS that combines the capabilities of Ollama and Open WebUI. It allows you to create and manage conversational AI applications with ease. This README file provides an overview of Belullama and guides you on how to get started.
 
