@@ -16,7 +16,7 @@ services:
         - ollama --version || exit 1
     image: ollama/ollama:latest
     labels:
-      icon: https://github.com/jmorganca/ollama/assets/3325447/080f3a72-e2fd-4741-8070-ae79a06f943f
+      icon: https://raw.githubusercontent.com/ai-joe-git/Belullama/main/icon.png
     ports:
       - target: 11434
         published: "11434"
@@ -50,7 +50,7 @@ services:
       - 8080/tcp
     image: ghcr.io/ai-joe-git/open-webui:latest
     labels:
-      icon: https://github.com/jmorganca/ollama/assets/3325447/080f3a72-e2fd-4741-8070-ae79a06f943f
+      icon: https://raw.githubusercontent.com/ai-joe-git/Belullama/main/icon.png
     ports:
       - target: 8080
         published: "8080"
