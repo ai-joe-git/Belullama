@@ -1,4 +1,4 @@
-![Image Description](Belullama.svg)
+![Image Description](icon.png)
 
 # Belullama
 CasaOS + Ollama + Open WebUI = Belullama
