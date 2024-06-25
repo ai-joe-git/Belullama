@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
     volumes:
       - type: bind
-        source: /
+        source: /DATA/AppData/belullama
         target: /root/.ollama
     devices: []
     cap_add: []
@@ -58,7 +58,7 @@ services:
     restart: unless-stopped
     volumes:
       - type: bind
-        source: /
+        source: /DATA/AppData/belullama
         target: /app/backend/data
     devices: []
     cap_add: []
