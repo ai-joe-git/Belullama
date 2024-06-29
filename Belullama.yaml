@@ -16,7 +16,7 @@ services:
         - ollama --version || exit 1
     image: ollama/ollama:latest
     labels:
-      icon: https://raw.githubusercontent.com/ai-joe-git/Belullama/main/icon.png
+      icon: https://openwebui.com/favicon.png
     ports:
       - target: 11434
         published: "11434"
@@ -48,7 +48,7 @@ services:
       - OLLAMA_BASE_URL=http://172.17.0.1:11434
     expose:
       - 8080/tcp
-    image: ghcr.io/ai-joe-git/open-webui:latest
+    image: ghcr.io/open-webui/open-webui:latest
     labels:
       icon: https://raw.githubusercontent.com/ai-joe-git/Belullama/main/icon.png
     ports:
