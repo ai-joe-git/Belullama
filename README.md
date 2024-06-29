@@ -1,11 +1,11 @@
-# (valekatoz) Fork
-Changes:
-- Better volume paths
-- Official Open WebUI for instant updates
-- Changed the logo to the Open WebUI one
+![Image Description](icon.png)
 
 # Belullama
 CasaOS + Ollama + Open WebUI = Belullama
+
+# Belullama
+
+![Image Description](thumbnail.png)
 
 Belullama is a powerful app for CasaOS that combines the capabilities of Ollama and Open WebUI. It allows you to create and manage conversational AI applications with ease. This README file provides an overview of Belullama and guides you on how to get started.
 
@@ -34,9 +34,10 @@ Belullama offers the following key features:
 
 - **Offline Operation**: Belullama operates entirely offline, ensuring data privacy and security. You can use it without relying on external services or internet connectivity.
 
-## Showcase
+## Screenshots
 
-![Demo 1](demo.gif)
+![Screenshot 1](screenshot-1.png)
+![Screenshot 2](screenshot-2.png)
 
 ## Installation
 
