@@ -97,6 +97,17 @@ requests to contribute code improvements or new features.
 Belullama is released under the [MIT License](https://opensource.org/licenses/MIT). Please refer to the LICENSE file in the repository for more details.
 
 
+## Star History
+
+<a href="https://star-history.com/#ai-joe-git/Belullama&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date" />
+ </picture>
+</a>
+
+
 ## Sources
 
 - [Ollama](https://ollama.com) Get up and running with Llama 3, Mistral, Gemma, and other large language models.
