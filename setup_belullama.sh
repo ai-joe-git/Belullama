@@ -40,6 +40,21 @@ install_docker_compose() {
     print_color "GREEN" "Docker Compose installed successfully."
 }
 
+# Function to get all IP addresses
+get_ip_addresses() {
+    ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v '127.0.0.1'
+}
+
+# Function to get hostname
+get_hostname() {
+    hostname
+}
+
+# Function to get FQDN (Fully Qualified Domain Name)
+get_fqdn() {
+    hostname -f
+}
+
 # Print welcome message
 print_color "BLUE" "
 ╔═══════════════════════════════════════════╗
@@ -133,10 +148,43 @@ if [ $? -eq 0 ]; then
 ║      Belullama is now up and running!     ║
 ╚═══════════════════════════════════════════╝
 
-Access the services at:
-  - Ollama API: http://localhost:11434
-  - WebUI: http://localhost:8080
-  - Stable Diffusion WebUI: http://localhost:7860
+Belullama services are accessible at the following addresses:
+
+1. Using 'localhost' (only from this machine):
+   - Ollama API: http://localhost:11434
+   - WebUI: http://localhost:8080
+   - Stable Diffusion WebUI: http://localhost:7860
+
+2. Using hostname:"
+    
+    HOSTNAME=$(get_hostname)
+    print_color "YELLOW" "   - http://$HOSTNAME:11434 (Ollama API)
+   - http://$HOSTNAME:8080 (WebUI)
+   - http://$HOSTNAME:7860 (Stable Diffusion WebUI)"
+
+    FQDN=$(get_fqdn)
+    if [ "$FQDN" != "$HOSTNAME" ]; then
+        print_color "GREEN" "
+3. Using Fully Qualified Domain Name (FQDN):"
+        print_color "YELLOW" "   - http://$FQDN:11434 (Ollama API)
+   - http://$FQDN:8080 (WebUI)
+   - http://$FQDN:7860 (Stable Diffusion WebUI)"
+    fi
+
+    print_color "GREEN" "
+4. Using IP addresses:"
+    IP_ADDRESSES=$(get_ip_addresses)
+    i=1
+    echo "$IP_ADDRESSES" | while read -r ip; do
+        print_color "YELLOW" "   $i. http://$ip:11434 (Ollama API)
+      http://$ip:8080 (WebUI)
+      http://$ip:7860 (Stable Diffusion WebUI)"
+        i=$((i+1))
+    done
+
+    print_color "BLUE" "
+You can use any of these addresses to access Belullama services from devices on your network.
+Choose the option that works best for your network configuration.
 
 Thank you for using Belullama!"
 else
