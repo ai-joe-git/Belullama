@@ -134,6 +134,7 @@ services:
       - ./sd_embeddings:/DATA/AppData/Stable-Diffusion-WebUI/embeddings
       - ./sd_outputs:/DATA/AppData/Stable-Diffusion-WebUI/outputs
       - ./sd_config:/DATA/AppData/Stable-Diffusion-WebUI/config
+      - ./sd_data:/DATA/AppData/Stable-Diffusion-WebUI
 EOL
 
 # Create necessary directories
