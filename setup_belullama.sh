@@ -105,6 +105,9 @@ services:
     image: ghcr.io/ai-joe-git/open-webui:latest
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
+      - ENABLE_RAG_WEB_LOADER_SSL_VERIFICATION:true
+      - ENABLE_RAG_WEB_SEARCH:true
+      - RAG_WEB_SEARCH_ENGINE:duckduckgo
       - ENABLE_IMAGE_GENERATION=true
       - AUTOMATIC1111_BASE_URL=http://stable-diffusion-webui:7860
       - IMAGE_SIZE=512x512
