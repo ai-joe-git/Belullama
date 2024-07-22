@@ -13,6 +13,7 @@ Belullama is a powerful app for CasaOS that combines the capabilities of Ollama 
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
+- [Installation Standelone](#installation_standelone)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -74,6 +75,13 @@ Once the installation is complete, you should see the app listed in the CasaOS d
 You can click on the app to access its web interface and start using it.
 
 **Please note that the specific steps may vary slightly depending on the version of CasaOS you are using. It's always a good idea to refer to the official CasaOS documentation or seek support from the CasaOS development team for any specific issues or questions you may have.**
+
+
+## Installation Standelone
+
+curl -fsSL https://raw.githubusercontent.com/ai-joe-git/Belullama/main/setup_belullama.sh -o setup_belullama.sh 
+chmod +x setup_belullama.sh
+sudo ./setup_belullama.sh
 
 ## Usage
 
