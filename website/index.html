@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belullama</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #c4e4ff;
+            --text-color: #000000;
+            --bg-color: #f0f0f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo img {
+            max-height: 50px;
+            width: auto;
+        }
+
+        nav a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        main {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .banner {
+            width: 70%;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .download-button {
+            display: inline-block;
+            background-color: #fff;
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .os-icons {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .os-icons img {
+            margin: 0 0.5rem;
+            width: 32px;
+            height: 32px;
+            transition: transform 0.3s ease;
+        }
+
+        .os-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        .install-command {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: monospace;
+            width: 100%;
+            max-width: 600px;
+            margin: 1rem auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow-x: auto;
+        }
+
+        .install-command span {
+            color: var(--text-color);
+        }
+
+        .copy-button, .subscribe-button {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .copy-button:hover, .subscribe-button:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .features {
+            text-align: left;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .features h2 {
+            text-align: center;
+        }
+
+        .features ul {
+            padding-left: 20px;
+            color: var(--text-color);
+        }
+
+        form {
+            margin-top: 2rem;
+        }
+
+        input[type="email"] {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+            width: 250px;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="icon.png" alt="Belullama Logo">
+            </div>
+            <nav>
+                <a href="#">Blog</a>
+                <a href="https://github.com/ai-joe-git/Belullama">GitHub</a>
+            </nav>
+        </header>
+
+        <main>
+            <h1 class="title">BELULLAMA</h1>
+            <div class="banner">
+                <img src="belullama_banner.webp" alt="Belullama Banner">
+            </div>
+
+            <div class="glass-card">
+                <h1>A powerful stand-alone AI application bundle!</h1>
+                <p>Run Llama 3, Mistral, Gemma, and other large language models locally. Generate images with Stable Diffusion.</p>
+
+                <p>Install with one command:</p>
+                <div class="install-command">
+                    <span>curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer.sh | sudo bash</span>
+                    <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+                </div>
+            </div>
+
+            <div class="glass-card features">
+                <h2>Features</h2>
+                <ul>
+                    <li>All-in-One AI Platform: Integrates Ollama, Open WebUI, and Automatic1111 (Stable Diffusion WebUI)</li>
+                    <li>Easy Setup: Simple installer script for quick deployment</li>
+                    <li>Conversational AI: Create and manage chatbots and AI applications</li>
+                    <li>Image Generation: Use Stable Diffusion models through Automatic1111 WebUI</li>
+                    <li>User-Friendly Interface: Intuitive Open WebUI for interacting with language models</li>
+                    <li>Offline Operation: Run entirely offline for data privacy and security</li>
+                    <li>Extensibility: Customize and extend functionalities as needed</li>
+                </ul>
+            </div>
+
+            <div class="glass-card">
+                <form>
+                    <p>Sign up to get notified of new updates.</p>
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit" class="subscribe-button">Subscribe</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const command = "curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer.sh | sudo bash";
+            navigator.clipboard.writeText(command).then(() => {
+                const copyButton = document.querySelector('.copy-button');
+                copyButton.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyButton.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+
+        // Add smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add fade-in animation for glass cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.glass-card').forEach((card) => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>
