@@ -1,6 +1,6 @@
 # Belullama
 
-![Image Description](banner.webp)
+![Image Description](belullama_banner.webp)
 
 Belullama: A powerful stand-alone AI application bundle!
 
