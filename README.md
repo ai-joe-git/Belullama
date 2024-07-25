@@ -29,7 +29,6 @@ Belullama provides a complete solution for running large language models and ima
 - **Offline Operation**: Run entirely offline, ensuring data privacy and security.
 - **Extensibility**: Customize and extend functionalities to meet your specific requirements.
 
-## Screenshots![Screenshot 1][]![Screenshot 2][]
 
 ## Installation
 
@@ -40,7 +39,6 @@ To install the stand-alone version of Belullama, which includes Ollama, Open Web
 ```bash
 curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer.sh | sudo bash
 ```
-
 
 This script will set up all components and configure them to work together seamlessly.
 
@@ -70,6 +68,7 @@ For detailed usage instructions, please refer to the documentation in the Belull
 
 ![Screenshot 1](screenshot-1.png)
 ![Screenshot 2](screenshot-2.png)
+
 
 
 ## Contributing
