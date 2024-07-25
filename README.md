@@ -4,12 +4,6 @@
 
 Belullama: A powerful stand-alone AI application bundle!
 
-## Screenshots
-
-![Screenshot 1](screenshot-1.png)
-![Screenshot 2](screenshot-2.png)
-
-
 Belullama is a comprehensive AI application that bundles Ollama, Open WebUI, and Automatic1111 (Stable Diffusion WebUI) into a single, easy-to-use package. It allows you to create and manage conversational AI applications and generate images with minimal setup.
 
 ## Table of Contents
@@ -71,6 +65,12 @@ After installation, you can start using Belullama:
 4. Follow the on-screen instructions to generate images or fine-tune models.
 
 For detailed usage instructions, please refer to the documentation in the Belullama repository.
+
+## Screenshots
+
+![Screenshot 1](screenshot-1.png)
+![Screenshot 2](screenshot-2.png)
+
 
 ## Contributing
 
