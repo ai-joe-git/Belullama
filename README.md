@@ -1,19 +1,21 @@
+# Belullama
+
 ![Image Description](icon.png)
 
-# Belullama
-CasaOS + Ollama + Open WebUI = Belullama
+Belullama: A powerful stand-alone AI application bundle!
 
-# Belullama
+## Screenshots
 
-![Image Description](thumbnail.png)
+![Screenshot 1](screenshot-1.png)
+![Screenshot 2](screenshot-2.png)
 
-Belullama is a powerful app for CasaOS that combines the capabilities of Ollama and Open WebUI. It allows you to create and manage conversational AI applications with ease. This README file provides an overview of Belullama and guides you on how to get started.
+
+Belullama is a comprehensive AI application that bundles Ollama, Open WebUI, and Automatic1111 (Stable Diffusion WebUI) into a single, easy-to-use package. It allows you to create and manage conversational AI applications and generate images with minimal setup.
 
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [Installation](#installation)
-- [Installation-stand-alone](#installation-stand-alone)
+- [Installation](#installation)  - [Stand-alone Installation](#stand-alone-installation)  - [CasaOS Installation (Optional)](#casaos-installation-optional)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -21,106 +23,69 @@ Belullama is a powerful app for CasaOS that combines the capabilities of Ollama 
 
 ## Introduction
 
-Belullama is a custom app for CasaOS that integrates the functionalities of Ollama and Open WebUI. It provides a comprehensive solution for creating and managing conversational AI applications on your own local server. With Belullama, you can leverage the power of large language models and enjoy a user-friendly interface for seamless interaction.
+Belullama provides a complete solution for running large language models and image generation models on your local machine. It combines the power of Ollama for running LLMs, Open WebUI for a user-friendly interface, and Automatic1111 for Stable Diffusion image generation.
 
 ## Features
 
-Belullama offers the following key features:
+- **All-in-One AI Platform**: Belullama integrates Ollama, Open WebUI, and Automatic1111 (Stable Diffusion WebUI) in a single package.
+- **Easy Setup**: The stand-alone version comes with a simple installer script for quick deployment.
+- **Conversational AI**: Create and manage chatbots and conversational AI applications with ease.
+- **Image Generation**: Generate images using Stable Diffusion models through the Automatic1111 WebUI.
+- **User-Friendly Interface**: Open WebUI provides an intuitive interface for interacting with language models.
+- **Offline Operation**: Run entirely offline, ensuring data privacy and security.
+- **Extensibility**: Customize and extend functionalities to meet your specific requirements.
 
-- **Conversational AI Platform**: Belullama combines the capabilities of Ollama and Open WebUI to provide a robust conversational AI platform. You can create and manage chatbots and conversational AI applications effortlessly.
-
-- **Extensibility**: Belullama is designed to be highly extensible, allowing you to integrate additional functionalities and customize the app according to your specific requirements.
-
-- **User-Friendly Interface**: The app features a simple and intuitive interface that makes it easy to create, configure, and manage chatbots and conversational AI applications.
-
-- **Offline Operation**: Belullama operates entirely offline, ensuring data privacy and security. You can use it without relying on external services or internet connectivity.
-
-## Screenshots
-
-![Screenshot 1](screenshot-1.png)
-![Screenshot 2](screenshot-2.png)
+## Screenshots![Screenshot 1][]![Screenshot 2][]
 
 ## Installation
 
-To install Belullama on your CasaOS server, follow these steps:
+### Stand-alone Installation
 
-- **Access your CasaOS server**:
+To install the stand-alone version of Belullama, which includes Ollama, Open WebUI, and Automatic1111, use the following command:```bash
+curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer.sh | sudo bash```
 
-Open your internet browser.
-Enter the address shown after completing the CasaOS installation.
-Press Enter to access the CasaOS web interface.
+This script will set up all components and configure them to work together seamlessly.
 
-- **Install a customized app**:
+### CasaOS Installation (Optional)
 
-In the CasaOS web interface, look for a button with a "+" symbol.
-Click on the "+" button to open a menu.
-From the menu, select "Install a customized app".
-This will allow you to install an app using a Docker file.
+![Image Description](thumbnail.png)
 
-- **Download the Docker file**:
+If you prefer to install Belullama as a CasaOS app, follow these steps:
 
-Once you have selected "Install a customized app," you will be prompted to choose a Docker file.
-Download the Docker file from the provided link [here](https://github.com/ai-joe-git/Belullama/blob/main/Belullama.yaml).
-Make sure to save the Docker file in a location that you can easily access later.
-
-- **Install the customized app**:
-
-After downloading the Docker file, go back to the CasaOS web interface.
-Click on the "Install" button to start the installation process.
-Follow any additional prompts or instructions that may appear during the installation.
-
-- **Verify the installation**:
-
-Once the installation is complete, you should see the app listed in the CasaOS dashboard.
-You can click on the app to access its web interface and start using it.
-
-**Please note that the specific steps may vary slightly depending on the version of CasaOS you are using. It's always a good idea to refer to the official CasaOS documentation or seek support from the CasaOS development team for any specific issues or questions you may have.**
-
-
-## Installation-stand-alone
-
-```bash
-curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer.sh | sudo bash
-```
-
-
+1. Access your CasaOS server through your web browser.
+2. Click the "+" button and select "Install a customized app".
+3. Download the Docker file from [here](https://github.com/ai-joe-git/Belullama/blob/main/Belullama.yaml).
+4. In the CasaOS interface, click "Install" and follow the prompts to complete the installation.
 
 ## Usage
 
-Once Belullama is installed, you can start using it to create and manage conversational AI applications. Here are some basic usage instructions:
+After installation, you can start using Belullama:
 
-1. Launch the Belullama app on your CasaOS server.
-2. Access the app through your preferred web browser.
-3. Follow the on-screen instructions to create a new chatbot or import an existing one.
-4. Configure the chatbot settings, including the language model, prompts, and system messages.
-5. Save your changes and start interacting with your chatbot through the user-friendly interface.
+1. Access Open WebUI through your web browser (the URL will be provided after installation).
+2. Use the interface to interact with language models, create chatbots, or generate text.
+3. To access Stable Diffusion WebUI, use the provided URL for Automatic1111.
+4. Follow the on-screen instructions to generate images or fine-tune models.
 
-For more detailed usage instructions and examples, please refer to the documentation provided in the Belullama repository.
+For detailed usage instructions, please refer to the documentation in the Belullama repository.
 
 ## Contributing
 
-Contributions to Belullama are welcome! If you have any ideas, bug reports, or feature requests, please open an issue in the repository. You can also submit pull
-requests to contribute code improvements or new features.
+Contributions to Belullama are welcome! If you have ideas, bug reports, or feature requests, please open an issue in the repository. Pull requests for code improvements or new features are also appreciated.
 
 ## License
 
-Belullama is released under the [MIT License](https://opensource.org/licenses/MIT). Please refer to the LICENSE file in the repository for more details.
-
+Belullama is released under the [MIT License](https://opensource.org/licenses/MIT). See the LICENSE file in the repository for details.
 
 ## Star History
 
-<a href="https://star-history.com/#ai-joe-git/Belullama&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date&theme=dark" />
+<a href="https://star-history.com/#ai-joe-git/Belullama&Date"> <picture>   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date&theme=dark" />
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date" />
- </picture>
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date" /> </picture>
 </a>
-
 
 ## Sources
 
-- [Ollama](https://ollama.com) Get up and running with Llama 3, Mistral, Gemma, and other large language models.
-- [CasaOS](https://casaos.io) A simple, easy-to-use, elegant open-source Personal Cloud system.
-- [Open-WebUI](https://openwebui.com) User-friendly WebUI for LLMs (Formerly Ollama WebUI)
-
+- [Ollama](https://ollama.com) - Run Llama 3, Mistral, Gemma, and other large language models locally.
+- [Open-WebUI](https://openwebui.com) - User-friendly WebUI for LLMs (Formerly Ollama WebUI).
+- [Automatic1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui) - Stable Diffusion WebUI.
+- [CasaOS](https://casaos.io) - A simple, easy-to-use, elegant open-source Personal Cloud system (optional).
