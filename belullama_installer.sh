@@ -15,7 +15,7 @@ curl -s -O https://raw.githubusercontent.com/ai-joe-git/Belullama/main/setup_bel
 
 # Make the script executable
 print_message "Making the installation script executable..."
-chmod +x install_speedllama.sh
+chmod +x setup_belullama.sh
 
 # Run the installation script
 print_message "Running the Belullama installation script..."
