@@ -44,7 +44,9 @@ Belullama provides a complete solution for running large language models and ima
 To install the stand-alone version of Belullama, which includes Ollama, Open WebUI, and Automatic1111, use the following command:
 
 ```bash
-curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer.sh | sudo bash```
+curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer.sh | sudo bash
+```
+
 
 This script will set up all components and configure them to work together seamlessly.
 
