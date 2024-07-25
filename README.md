@@ -80,7 +80,7 @@ You can click on the app to access its web interface and start using it.
 ## Installation-stand-alone
 
 ```bash
-curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer.sh | bash
+curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer.sh | sudo bash
 ```
 
 
