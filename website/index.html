@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belullama</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         :root {
             --primary-color: #ffffff;
             --secondary-color: #c4e4ff;
             --text-color: #000000;
+            --title-color: #00008B; /* Dark Blue */
             --bg-color: #f0f0f0;
         }
 
@@ -200,11 +201,43 @@
         }
 
         .title {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--text-color);
+            color: var(--title-color);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 1s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInLetters 0.5s ease forwards;
+        }
+
+        @keyframes fadeInLetters {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -298,6 +331,14 @@
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(card);
+        });
+
+        // Add letter-by-letter animation for the title
+        const title = document.querySelector('.title');
+        title.innerHTML = title.textContent.replace(/\S/g, "<span>$&</span>");
+        
+        document.querySelectorAll('.title span').forEach((letter, index) => {
+            letter.style.animationDelay = `${index * 0.1}s`;
         });
     </script>
 </body>
