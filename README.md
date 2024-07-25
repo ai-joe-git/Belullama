@@ -50,7 +50,7 @@ If you prefer to install Belullama as a CasaOS app, follow these steps:
 
 1. Access your CasaOS server through your web browser.
 2. Click the "+" button and select "Install a customized app".
-3. Download the Docker file from [here](https://github.com/ai-joe-git/Belullama/blob/main/Belullama.yaml).
+3. Download the Docker file from [here](https://github.com/ai-joe-git/Belullama/blob/main/BelullamaStableDiffusionBETA.yaml).
 4. In the CasaOS interface, click "Install" and follow the prompts to complete the installation.
 
 ## Usage
