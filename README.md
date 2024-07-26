@@ -1,6 +1,24 @@
-# Belullama
-
 ![Image Description](belullama_banner.webp)
+
+## 🚀 Coming Soon: NVIDIA GPU Support
+
+We're excited to announce that we're actively working on an NVIDIA GPU-compatible version of Belullama! This upcoming release will allow users with NVIDIA graphics cards to leverage their GPU power for significantly faster processing and improved performance.
+
+### 🧪 Beta Testers Needed
+
+As we're in the final stages of development, we're looking for beta testers to help us ensure the NVIDIA version works flawlessly across different setups. If you have an NVIDIA GPU and would like to contribute to the project by being a beta tester, please open an issue with the title "NVIDIA Beta Tester" or reach out to us directly.
+
+### 📅 Expected Release
+
+While we don't have a fixed release date yet, we're aiming to launch the NVIDIA-compatible version very soon. Stay tuned to this repository for updates!
+
+### 💡 Current Version
+
+Please note that the current version of Belullama is CPU-based. If you're eager to start using Belullama right away, you can still enjoy its features using your CPU.
+
+We appreciate your patience and support as we work to make Belullama even more powerful and accessible. Thank you for being part of our community!
+
+# Belullama
 
 Belullama: A powerful stand-alone AI application bundle!
 
