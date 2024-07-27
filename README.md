@@ -1,6 +1,6 @@
 # Belullama
 
-![Image Description](belullama_banner.webp)
+![GIF Description](ezgif-3-bc1a9cf5bb.gif)
 
 ## 🚀 Coming Soon: NVIDIA GPU Support
 
