@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# Function to print colored text
+# Colors for better readability
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to print colored output
 print_color() {
-    case $1 in
-        "RED") printf "\033[0;31m$2\033[0m\n" ;;
-        "GREEN") printf "\033[0;32m$2\033[0m\n" ;;
-        "YELLOW") printf "\033[1;33m$2\033[0m\n" ;;
-    esac
+    printf "${!1}%s${NC}\n" "$2"
 }
 
 # Function to check if a command exists
@@ -14,69 +17,32 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-# Function to check for NVIDIA GPU
-check_nvidia_gpu() {
-    if command_exists nvidia-smi; then
-        return 0
-    else
-        return 1
-    fi
+# Function to install Docker
+install_docker() {
+    print_color "YELLOW" "Docker not found. Installing Docker..."
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo usermod -aG docker $USER
+    rm get-docker.sh
+    sudo systemctl start docker
+    while ! docker info >/dev/null 2>&1; do
+        echo -n "."
+        sleep 1
+    done
+    print_color "GREEN" "Docker installed and started successfully."
 }
 
-# Function to check for AMD GPU
-check_amd_gpu() {
-    if command_exists rocm-smi; then
-        return 0
-    elif [ -d "/sys/class/kfd" ]; then
-        return 0
-    else
-        return 1
-    fi
+# Function to install Docker Compose
+install_docker_compose() {
+    print_color "YELLOW" "Docker Compose not found. Installing Docker Compose..."
+    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    print_color "GREEN" "Docker Compose installed successfully."
 }
 
-# Function to determine CUDA version
-get_cuda_version() {
-    if command_exists nvidia-smi; then
-        CUDA_VERSION=$(nvidia-smi --query-gpu=cuda_version --format=csv,noheader,nounits | head -n 1)
-        echo "${CUDA_VERSION//.}"  # Remove dots from version number
-    else
-        echo "0"
-    fi
-}
-
-# Function to install NVIDIA Container Toolkit
-install_nvidia_container_toolkit() {
-    print_color "YELLOW" "Installing NVIDIA Container Toolkit..."
-    if command_exists apt-get; then
-        curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
-        curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-            sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
-            sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-        sudo apt-get update
-        sudo apt-get install -y nvidia-container-toolkit
-    elif command_exists yum; then
-        distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-        curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.repo | \
-            sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
-        sudo yum install -y nvidia-container-toolkit
-    else
-        print_color "RED" "Unsupported package manager. Please install NVIDIA Container Toolkit manually."
-        exit 1
-    fi
-}
-
-# Function to install ROCm
-install_rocm() {
-    print_color "YELLOW" "Installing ROCm..."
-    if command_exists apt-get; then
-        sudo apt-get update
-        sudo apt-get install -y rocm-libs
-    elif command_exists yum; then
-        sudo yum install -y rocm-libs
-    else
-        print_color "RED" "Unsupported package manager. Please install ROCm manually."
-        exit 1
-    fi
+# Function to get all IP addresses
+get_ip_addresses() {
+    ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v '127.0.0.1'
 }
 
 # Function to get hostname
@@ -84,58 +50,91 @@ get_hostname() {
     hostname
 }
 
-# Function to get FQDN
+# Function to get FQDN (Fully Qualified Domain Name)
 get_fqdn() {
     hostname -f
 }
 
-# Function to get IP addresses
-get_ip_addresses() {
-    ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v '^127' | sort
+# Function to determine GPU type
+determine_gpu_type() {
+    if command -v nvidia-smi &> /dev/null; then
+        echo "nvidia"
+    elif command -v rocm-smi &> /dev/null; then
+        echo "amd"
+    else
+        echo "none"
+    fi
 }
 
-# Check if Docker is installed
+# Function to install NVIDIA toolkit
+install_nvidia_toolkit() {
+    print_color "YELLOW" "Installing NVIDIA Container Toolkit..."
+    distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+    curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+    curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+    sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+    sudo systemctl restart docker
+    print_color "GREEN" "NVIDIA Container Toolkit installed successfully."
+}
+
+# Function to install ROCm
+install_rocm() {
+    print_color "YELLOW" "Installing ROCm..."
+    sudo apt-get update
+    sudo apt-get install -y rocm-dkms
+    sudo usermod -a -G video $USER
+    sudo usermod -a -G render $USER
+    echo 'export PATH=$PATH:/opt/rocm/bin' >> ~/.bashrc
+    source ~/.bashrc
+    print_color "GREEN" "ROCm installed successfully."
+}
+
+# Print welcome message
+print_color "BLUE" "
+╔═══════════════════════════════════════════╗
+║         Welcome to Belullama Setup        ║
+╚═══════════════════════════════════════════╝"
+
+# Check for root privileges
+if [ "$EUID" -ne 0 ]; then
+    print_color "RED" "Please run as root or with sudo privileges."
+    exit 1
+fi
+
+# Check and install Docker if necessary
 if ! command_exists docker; then
-    print_color "RED" "Docker is not installed. Please install Docker and run this script again."
-    exit 1
+    install_docker
+else
+    print_color "GREEN" "Docker is already installed."
 fi
 
-# Check if Docker Compose is installed
+# Check and install Docker Compose if necessary
 if ! command_exists docker-compose; then
-    print_color "RED" "Docker Compose is not installed. Please install Docker Compose and run this script again."
-    exit 1
+    install_docker_compose
+else
+    print_color "GREEN" "Docker Compose is already installed."
 fi
 
-# Check for GPU and install necessary drivers/toolkits
-GPU_TYPE=""
-CUDA_VERSION=""
-if check_nvidia_gpu; then
-    print_color "GREEN" "NVIDIA GPU detected."
-    GPU_TYPE="nvidia"
+# Create project directory
+INSTALL_DIR="$HOME/belullama"
+mkdir -p "$INSTALL_DIR" && cd "$INSTALL_DIR"
+print_color "BLUE" "Installing Belullama in $INSTALL_DIR"
+
+# Determine GPU type and install necessary tools
+GPU_TYPE=$(determine_gpu_type)
+if [ "$GPU_TYPE" = "nvidia" ]; then
     if ! command_exists nvidia-container-toolkit; then
-        install_nvidia_container_toolkit
+        install_nvidia_toolkit
     else
         print_color "GREEN" "NVIDIA Container Toolkit is already installed."
     fi
-    CUDA_VERSION=$(get_cuda_version)
-    print_color "GREEN" "CUDA version: $CUDA_VERSION"
-elif check_amd_gpu; then
-    print_color "GREEN" "AMD GPU detected."
-    GPU_TYPE="amd"
+elif [ "$GPU_TYPE" = "amd" ]; then
     if ! command_exists rocm-smi; then
         install_rocm
     else
         print_color "GREEN" "ROCm is already installed."
     fi
-else
-    print_color "YELLOW" "No supported GPU detected. Using CPU-only mode."
-    GPU_TYPE="cpu"
 fi
-
-# Create project directory
-PROJECT_DIR="belullama"
-mkdir -p "$PROJECT_DIR"
-cd "$PROJECT_DIR" || exit
 
 # Create Docker Compose file
 print_color "YELLOW" "Creating Docker Compose configuration..."
@@ -147,7 +146,7 @@ services:
 EOL
 
 if [ "$GPU_TYPE" = "nvidia" ]; then
-    echo "    image: ollama/ollama:latest-cuda${CUDA_VERSION}" >> docker-compose.yml
+    echo "    image: ollama/ollama:latest" >> docker-compose.yml
 elif [ "$GPU_TYPE" = "amd" ]; then
     echo "    image: ollama/ollama:latest-rocm" >> docker-compose.yml
 else
@@ -207,16 +206,33 @@ cat >> docker-compose.yml << EOL
       - ./webui_data:/app/backend/data
     depends_on:
       - ollama
+EOL
+
+if [ "$GPU_TYPE" = "nvidia" ]; then
+    echo "    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]" >> docker-compose.yml
+elif [ "$GPU_TYPE" = "amd" ]; then
+    echo "    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri" >> docker-compose.yml
+fi
+
+cat >> docker-compose.yml << EOL
 
   stable-diffusion-webui:
 EOL
 
 if [ "$GPU_TYPE" = "nvidia" ]; then
-    echo "    image: ghcr.io/ai-joe-git/automatic1111-docker:main-cuda" >> docker-compose.yml
-elif [ "$GPU_TYPE" = "amd" ]; then
-    echo "    image: ghcr.io/ai-joe-git/automatic1111-docker:main-rocm" >> docker-compose.yml
-else
     echo "    image: ghcr.io/ai-joe-git/automatic1111-docker:main" >> docker-compose.yml
+elif [ "$GPU_TYPE" = "amd" ]; then
+    echo "    image: ghcr.io/ai-joe-git/automatic1111-docker:rocm" >> docker-compose.yml
+else
+    echo "    image: ghcr.io/ai-joe-git/automatic1111-docker:cpu" >> docker-compose.yml
 fi
 
 cat >> docker-compose.yml << EOL
@@ -249,20 +265,22 @@ elif [ "$GPU_TYPE" = "amd" ]; then
       - /dev/dri:/dev/dri" >> docker-compose.yml
 fi
 
-print_color "GREEN" "Docker Compose configuration created successfully."
+# Create necessary directories
+print_color "YELLOW" "Creating data directories..."
+mkdir -p ollama_data webui_data sd_models sd_vae sd_lora sd_embeddings sd_outputs sd_config
 
-# Create directories for volumes
-mkdir -p ollama_data webui_data sd_models sd_vae sd_lora sd_embeddings sd_outputs sd_config sd_data
-
-# Start the containers
-print_color "YELLOW" "Starting Docker containers..."
+# Run Docker Compose
+print_color "BLUE" "Starting Belullama services..."
 docker-compose up -d
 
-# Check if containers are running
-if [ "$(docker-compose ps -q | wc -l)" -eq 3 ]; then
-    print_color "GREEN" "All containers are running successfully!"
-    
-    print_color "GREEN" "BeLLLama services are accessible at the following addresses:
+# Check if services are running
+if [ $? -eq 0 ]; then
+    print_color "GREEN" "
+╔═══════════════════════════════════════════╗
+║      Belullama is now up and running!     ║
+╚═══════════════════════════════════════════╝
+
+Belullama services are accessible at the following addresses:
 
 1. Using 'localhost' (only from this machine):
    - Ollama API: http://localhost:11434
@@ -295,8 +313,12 @@ if [ "$(docker-compose ps -q | wc -l)" -eq 3 ]; then
       http://$ip:7860 (Stable Diffusion WebUI)"
         i=$((i+1))
     done
-else
-    print_color "RED" "Some containers failed to start. Please check the logs using 'docker-compose logs'."
-fi
 
-print_color "YELLOW" "Setup complete!"
+    print_color "BLUE" "
+You can use any of these addresses to access Belullama services from devices on your network.
+Choose the option that works best for your network configuration.
+
+Thank you for using Belullama!"
+else
+    print_color "RED" "There was an issue starting Belullama services. Please check the Docker logs for more information."
+fi
