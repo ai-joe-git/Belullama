@@ -73,6 +73,7 @@ install_nvidia_toolkit() {
     curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
     curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
     sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+    sudo nvidia-ctk runtime configure --runtime=docker
     sudo systemctl restart docker
     print_color "GREEN" "NVIDIA Container Toolkit installed successfully."
 }
@@ -148,7 +149,7 @@ EOL
 if [ "$GPU_TYPE" = "nvidia" ]; then
     echo "    image: ollama/ollama:latest" >> docker-compose.yml
 elif [ "$GPU_TYPE" = "amd" ]; then
-    echo "    image: ollama/ollama:latest-rocm" >> docker-compose.yml
+    echo "    image: ollama/ollama:rocm" >> docker-compose.yml
 else
     echo "    image: ollama/ollama:latest" >> docker-compose.yml
 fi
@@ -182,11 +183,11 @@ cat >> docker-compose.yml << EOL
 EOL
 
 if [ "$GPU_TYPE" = "nvidia" ]; then
-    echo "    image: ghcr.io/ai-joe-git/open-webui:latest-cuda" >> docker-compose.yml
+    echo "    image: ghcr.io/ai-joe-git/open-webui:cuda" >> docker-compose.yml
 elif [ "$GPU_TYPE" = "amd" ]; then
-    echo "    image: ghcr.io/ai-joe-git/open-webui:latest-rocm" >> docker-compose.yml
+    echo "    image: ghcr.io/ai-joe-git/open-webui:main" >> docker-compose.yml
 else
-    echo "    image: ghcr.io/ai-joe-git/open-webui:latest" >> docker-compose.yml
+    echo "    image: ghcr.io/ai-joe-git/open-webui:main" >> docker-compose.yml
 fi
 
 cat >> docker-compose.yml << EOL
@@ -230,9 +231,9 @@ EOL
 if [ "$GPU_TYPE" = "nvidia" ]; then
     echo "    image: ghcr.io/ai-joe-git/automatic1111-docker:main" >> docker-compose.yml
 elif [ "$GPU_TYPE" = "amd" ]; then
-    echo "    image: ghcr.io/ai-joe-git/automatic1111-docker:rocm" >> docker-compose.yml
+    echo "    image: ghcr.io/ai-joe-git/automatic1111-docker-gpu:main" >> docker-compose.yml
 else
-    echo "    image: ghcr.io/ai-joe-git/automatic1111-docker:cpu" >> docker-compose.yml
+    echo "    image: ghcr.io/ai-joe-git/automatic1111-docker-gpu:main" >> docker-compose.yml
 fi
 
 cat >> docker-compose.yml << EOL
