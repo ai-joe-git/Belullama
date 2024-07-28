@@ -8,7 +8,15 @@ We're excited to announce that we're actively working on an NVIDIA GPU-compatibl
 
 ### 🧪 Beta Testers Needed
 
-As we're in the final stages of development, we're looking for beta testers to help us ensure the NVIDIA version works flawlessly across different setups. If you have an NVIDIA GPU and would like to contribute to the project by being a beta tester, please open an issue with the title "NVIDIA Beta Tester" or reach out to us directly.
+As we're in the final stages of development, we're looking for beta testers to help us ensure the NVIDIA version works flawlessly across different setups. If you have an NVIDIA GPU and would like to contribute to the project by being a beta tester, please try the GPU supported version:
+
+To install the GPU version of Belullama, which includes Ollama, Open WebUI, and Automatic1111, use the following command:
+
+```bash
+curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer_gpu.sh | sudo bash
+```
+
+This script will set up all components and configure them to work together seamlessly.
 
 ### 📅 Expected Release
 
