@@ -195,6 +195,19 @@ else
     print_color "RED" "There was an issue starting Belullama services. Please check the Docker logs for more information."
 fi
 
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Function to get IP addresses
+get_ip_addresses() {
+    ip addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v '127.0.0.1'
+}
+
+# Set installation directory
+INSTALL_DIR="$HOME/belullama"
+
 # Function to install lighttpd if it's not already installed
 install_lighttpd() {
     if ! command_exists lighttpd; then
@@ -210,6 +223,26 @@ install_lighttpd() {
             exit 1
         fi
     fi
+}
+
+# Function to find lighttpd executable
+find_lighttpd() {
+    local lighttpd_path
+
+    # Check common locations
+    for path in /usr/sbin/lighttpd /usr/local/sbin/lighttpd /opt/homebrew/sbin/lighttpd; do
+        if [ -x "$path" ]; then
+            lighttpd_path="$path"
+            break
+        fi
+    done
+
+    # If not found in common locations, try to find it
+    if [ -z "$lighttpd_path" ]; then
+        lighttpd_path=$(sudo find / -name lighttpd -type f -executable 2>/dev/null | head -n 1)
+    fi
+
+    echo "$lighttpd_path"
 }
 
 # Generate HTML interface and start lighttpd server
@@ -363,33 +396,28 @@ generate_and_serve_html_interface() {
                 <div class="logo-placeholder">O</div>
                 <h2>Ollama API</h2>
                 <p>Access the Ollama API for advanced AI model interactions.</p>
-                <a href="http://$HOSTNAME:11434" class="button" target="_blank">Open Ollama API</a>
+                <a href="http://${ip_address}:11434" class="button" target="_blank">Open Ollama API</a>
             </div>
             
             <div class="service">
                 <div class="logo-placeholder">W</div>
                 <h2>Open WebUI</h2>
                 <p>User-friendly interface for interacting with AI models.</p>
-                <a href="http://$HOSTNAME:8080" class="button" target="_blank">Open WebUI</a>
+                <a href="http://${ip_address}:8080" class="button" target="_blank">Open WebUI</a>
             </div>
             
             <div class="service">
                 <div class="logo-placeholder">SD</div>
                 <h2>Stable Diffusion WebUI</h2>
                 <p>Generate and manipulate images using AI.</p>
-                <a href="http://$HOSTNAME:7860" class="button" target="_blank">Open Stable Diffusion</a>
+                <a href="http://${ip_address}:7860" class="button" target="_blank">Open Stable Diffusion</a>
             </div>
         </div>
         
         <div class="info">
             <h3>Additional Information</h3>
             <p><strong>Installation Directory:</strong> $INSTALL_DIR</p>
-            <p><strong>Hostname:</strong> $HOSTNAME</p>
-            <p><strong>FQDN:</strong> $FQDN</p>
-            <p><strong>IP Addresses:</strong></p>
-            <ul>
-                $(echo "$IP_ADDRESSES" | while read -r ip; do echo "<li>$ip</li>"; done)
-            </ul>
+            <p><strong>IP Address:</strong> ${ip_address}</p>
             <p>For more information and documentation, visit <a href="https://github.com/ai-joe-git/Belullama" target="_blank">Belullama GitHub Repository</a>.</p>
         </div>
     </div>
@@ -414,8 +442,16 @@ EOL
     # Install lighttpd if not already installed
     install_lighttpd
 
+    # Find lighttpd executable
+    local lighttpd_exec=$(find_lighttpd)
+
+    if [ -z "$lighttpd_exec" ]; then
+        print_color "RED" "Could not find lighttpd executable. Please ensure it's installed and in your PATH."
+        exit 1
+    fi
+
     # Start lighttpd server
-    lighttpd -f "$interface_dir/lighttpd.conf" -D &
+    sudo "$lighttpd_exec" -f "$interface_dir/lighttpd.conf" -D &
 
     print_color "BLUE" "
 ╔═══════════════════════════════════════════════════════╗
@@ -441,7 +477,9 @@ from any device on your local network using the IP address: ${ip_address}
     fi
 }
 
-# Call the function to generate and serve the HTML interface
+# Main execution
+mkdir -p "$INSTALL_DIR"
 generate_and_serve_html_interface
 
 print_color "BLUE" "Setup complete. Enjoy using Belullama!"
+This script includes all the necessary functions and the main execution flo
