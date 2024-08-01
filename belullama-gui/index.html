@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belullama Ecosystem</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --text-color: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --primary-color: #0071e3;
+            --secondary-color: #06c;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #001f3f, #0074D9, #7FDBFF);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .service h2 {
+            color: var(--text-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--text-color);
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info h3 {
+            color: var(--text-color);
+            margin-top: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container, .service, .info {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .service:nth-child(2) { animation-delay: 0.1s; }
+        .service:nth-child(3) { animation-delay: 0.2s; }
+        .info { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Belullama Ecosystem</h1>
+        
+        <div class="services">
+            <div class="service">
+                <div class="logo-placeholder">O</div>
+                <h2>Ollama API</h2>
+                <p>Access the Ollama API for advanced AI model interactions.</p>
+                <a href="http://$HOSTNAME:11434" class="button" target="_blank">Open Ollama API</a>
+            </div>
+            
+            <div class="service">
+                <div class="logo-placeholder">W</div>
+                <h2>Open WebUI</h2>
+                <p>User-friendly interface for interacting with AI models.</p>
+                <a href="http://$HOSTNAME:8080" class="button" target="_blank">Open WebUI</a>
+            </div>
+            
+            <div class="service">
+                <div class="logo-placeholder">SD</div>
+                <h2>Stable Diffusion WebUI</h2>
+                <p>Generate and manipulate images using AI.</p>
+                <a href="http://$HOSTNAME:7860" class="button" target="_blank">Open Stable Diffusion</a>
+            </div>
+        </div>
+        
+        <div class="info">
+            <h3>Additional Information</h3>
+            <p><strong>Installation Directory:</strong> $INSTALL_DIR</p>
+            <p><strong>Hostname:</strong> $HOSTNAME</p>
+            <p><strong>FQDN:</strong> $FQDN</p>
+            <p><strong>IP Addresses:</strong></p>
+            <ul>
+                $(echo "$IP_ADDRESSES" | while read -r ip; do echo "<li>$ip</li>"; done)
+            </ul>
+            <p>For more information and documentation, visit <a href="https://github.com/ai-joe-git/Belullama" target="_blank">Belullama GitHub Repository</a>.</p>
+        </div>
+    </div>
+</body>
+</html>
