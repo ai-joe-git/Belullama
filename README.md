@@ -12,7 +12,7 @@ Belullama is a comprehensive AI application that bundles Ollama, Open WebUI, and
 - [Installation](#installation)  
   - [Stand-alone Installation](#stand-alone-installation)  
   - [CasaOS Installation (Optional)](#casaos-installation-optional)
-- [🚀 Coming Soon: NVIDIA GPU Support](#🚀-coming-soon-nvidia-gpu-support)
+- [🚀 Coming Soon: NVIDIA GPU Support](#coming-soon-nvidia-gpu-support)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
@@ -58,7 +58,7 @@ If you prefer to install Belullama as a CasaOS app, follow these steps:
 3. Download the Docker file from [here](https://github.com/ai-joe-git/Belullama/blob/main/BelullamaStableDiffusionBETA.yaml).
 4. In the CasaOS interface, click "Install" and follow the prompts to complete the installation.
 
-# 🚀-Coming-Soon:-NVIDIA-GPU-Support
+## Coming Soon: NVIDIA GPU Support
 
 We're excited to announce that we're actively working on an NVIDIA GPU-compatible version of Belullama! This upcoming release will allow users with NVIDIA graphics cards to leverage their GPU power for significantly faster processing and improved performance.
 
