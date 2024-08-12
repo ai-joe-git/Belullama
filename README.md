@@ -1,32 +1,4 @@
-# Belullama
-
 ![GIF Description](ezgif-3-bc1a9cf5bb.gif)
-
-## 🚀 Coming Soon: NVIDIA GPU Support
-
-We're excited to announce that we're actively working on an NVIDIA GPU-compatible version of Belullama! This upcoming release will allow users with NVIDIA graphics cards to leverage their GPU power for significantly faster processing and improved performance.
-
-### 🧪 Beta Testers Needed
-
-As we're in the final stages of development, we're looking for beta testers to help us ensure the NVIDIA version works flawlessly across different setups. If you have an NVIDIA GPU and would like to contribute to the project by being a beta tester, please try the GPU supported version:
-
-To install the GPU version of Belullama, which includes Ollama, Open WebUI, and Automatic1111, use the following command:
-
-```bash
-curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer_gpu.sh | sudo bash
-```
-
-This script will set up all components and configure them to work together seamlessly.
-
-### 📅 Expected Release
-
-While we don't have a fixed release date yet, we're aiming to launch the NVIDIA-compatible version very soon. Stay tuned to this repository for updates!
-
-### 💡 Current Version
-
-Please note that the current version of Belullama is CPU-based. If you're eager to start using Belullama right away, you can still enjoy its features using your CPU.
-
-We appreciate your patience and support as we work to make Belullama even more powerful and accessible. Thank you for being part of our community!
 
 # Belullama
 
@@ -38,6 +10,7 @@ Belullama is a comprehensive AI application that bundles Ollama, Open WebUI, and
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)  - [Stand-alone Installation](#stand-alone-installation)  - [CasaOS Installation (Optional)](#casaos-installation-optional)
+- [🧪NVIDIA GPU Support(beta)](#🚀-Coming-Soon:-NVIDIA-GPU-Support)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -80,6 +53,32 @@ If you prefer to install Belullama as a CasaOS app, follow these steps:
 2. Click the "+" button and select "Install a customized app".
 3. Download the Docker file from [here](https://github.com/ai-joe-git/Belullama/blob/main/BelullamaStableDiffusionBETA.yaml).
 4. In the CasaOS interface, click "Install" and follow the prompts to complete the installation.
+
+## 🚀 Coming Soon: NVIDIA GPU Support
+
+We're excited to announce that we're actively working on an NVIDIA GPU-compatible version of Belullama! This upcoming release will allow users with NVIDIA graphics cards to leverage their GPU power for significantly faster processing and improved performance.
+
+### 🧪 Beta Testers Needed
+
+As we're in the final stages of development, we're looking for beta testers to help us ensure the NVIDIA version works flawlessly across different setups. If you have an NVIDIA GPU and would like to contribute to the project by being a beta tester, please try the GPU supported version:
+
+To install the GPU version of Belullama, which includes Ollama, Open WebUI, and Automatic1111, use the following command:
+
+```bash
+curl -s https://raw.githubusercontent.com/ai-joe-git/Belullama/main/belullama_installer_gpu.sh | sudo bash
+```
+
+This script will set up all components and configure them to work together seamlessly.
+
+### 📅 Expected Release
+
+While we don't have a fixed release date yet, we're aiming to launch the NVIDIA-compatible version very soon. Stay tuned to this repository for updates!
+
+### 💡 Current Version
+
+Please note that the current version of Belullama is CPU-based. If you're eager to start using Belullama right away, you can still enjoy its features using your CPU.
+
+We appreciate your patience and support as we work to make Belullama even more powerful and accessible. Thank you for being part of our community!
 
 ## Usage
 
