@@ -112,10 +112,10 @@ Belullama is released under the [MIT License](https://opensource.org/licenses/MI
 
 ## Star History
 
-<a href="https://star-history.com/#ai-joe-git/Belullama&Date"> <picture>   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date&theme=dark" />
+[<a href="https://star-history.com/#ai-joe-git/Belullama&Date"> <picture>   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date&theme=dark" />
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date" />
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ai-joe-git/Belullama&type=Date" /> </picture>
-</a>
+</a>](https://github.com/ai-joe-git/Belullama)
 
 ## Sources
 
