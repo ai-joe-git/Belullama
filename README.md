@@ -12,7 +12,7 @@ Belullama is a comprehensive AI application that bundles Ollama, Open WebUI, and
 - [Installation](#installation)  
   - [Stand-alone Installation](#stand-alone-installation)  
   - [CasaOS Installation (Optional)](#casaos-installation-optional)
-- [🚀 NVIDIA GPU Support](#coming-soon-nvidia-gpu-support)
+  - [🚀 NVIDIA GPU Support](#coming-soon-nvidia-gpu-support)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
