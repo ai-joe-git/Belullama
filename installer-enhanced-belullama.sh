@@ -79,7 +79,7 @@ print_success "Temporary directory created: $temp_dir"
 
 # Download the main installation script
 print_message "Downloading Belullama Enhanced installation script..."
-if curl -fsSL -o install-enhanced-belullama.sh https://raw.githubusercontent.com/ai-joe-git/belullama-enhanced/main/install-enhanced-belullama.sh; then
+if curl -fsSL -o install-enhanced-belullama.sh https://raw.githubusercontent.com/ai-joe-git/belullama/main/install-enhanced-belullama.sh; then
     print_success "Installation script downloaded successfully"
 else
     print_error "Failed to download installation script. Please check your internet connection."
