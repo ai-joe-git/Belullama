@@ -34,15 +34,15 @@ cat << "EOF"
 ██╔══██╗██╔════╝██║     ██║   ██║██║     ██║     ██╔══██╗████╗ ████║██╔══██╗
 ██████╔╝█████╗  ██║     ██║   ██║██║     ██║     ███████║██╔████╔██║███████║
 ██╔══██╗██╔══╝  ██║     ██║   ██║██║     ██║     ██╔══██║██║╚██╔╝██║██╔══██║
-██████╔╝███████╗███████╗╚██████╔╝███████╗███████╗██║  ██║██║ ╚═╝ ██║██║  ██║
-╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝
+██████╔╝███████╗███████╗╚██████╔╝███████╗███████╗██║  ██║██║ ╚═╝ ██║█�[...]
+╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚��[...]
 
                     ███████╗███╗   ██╗██╗  ██╗ █████╗ ███╗   ██╗ ██████╗███████╗██████╗ 
-                    ██╔════╝████╗  ██║██║  ██║██╔══██╗████╗  ██║██╔════╝██╔════╝██╔══██╗
+                    ██╔════╝████╗  ██║██║  ██║██╔══██╗████╗  ██║██╔════╝██╔════╝██╔═[...]
                     █████╗  ██╔██╗ ██║███████║███████║██╔██╗ ██║██║     █████╗  ██║  ██║
-                    ██╔══╝  ██║╚██╗██║██╔══██║██╔══██║██║╚██╗██║██║     ██╔══╝  ██║  ██║
-                    ███████╗██║ ╚████║██║  ██║██║  ██║██║ ╚████║╚██████╗███████╗██████╔╝
-                    ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═════╝ 
+                    ██╔══╝  ██║╚██╗██║██╔══██║██╔══██║██║╚██╗██║██║     ██╔══╝  ██║  ██�[...]
+                    ███████╗██║ ╚████║██║  ██║██║  ██║██║ ╚████║╚██████╗███████╗████[...]
+                    ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═════[...]
 
 EOF
 echo -e "${NC}"
@@ -79,7 +79,7 @@ print_success "Temporary directory created: $temp_dir"
 
 # Download the main installation script
 print_message "Downloading Belullama Enhanced installation script..."
-if curl -fsSL -o install_belullama.sh https://raw.githubusercontent.com/ai-joe-git/belullama-enhanced/main/install_belullama.sh; then
+if curl -fsSL -o install-enhanced-belullama.sh https://raw.githubusercontent.com/ai-joe-git/belullama-enhanced/main/install-enhanced-belullama.sh; then
     print_success "Installation script downloaded successfully"
 else
     print_error "Failed to download installation script. Please check your internet connection."
@@ -89,7 +89,7 @@ else
 fi
 
 # Verify the script was downloaded and is not empty
-if [[ ! -s install_belullama.sh ]]; then
+if [[ ! -s install-enhanced-belullama.sh ]]; then
     print_error "Downloaded script is empty or corrupted."
     cd ..
     rm -rf "$temp_dir"
@@ -98,7 +98,7 @@ fi
 
 # Make the script executable
 print_message "Making the installation script executable..."
-chmod +x install_belullama.sh
+chmod +x install-enhanced-belullama.sh
 print_success "Script permissions set"
 
 # Run the installation script
@@ -109,7 +109,7 @@ echo -e "${YELLOW}===========================================${NC}"
 echo ""
 
 # Execute the main script
-if ./install_belullama.sh; then
+if ./install-enhanced-belullama.sh; then
     print_success "Belullama Enhanced installation completed successfully!"
 else
     print_error "Installation failed. Please check the logs above for details."
