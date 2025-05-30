@@ -45,7 +45,7 @@ Belullama Enhanced revolutionizes local AI deployment by providing intelligent h
 Install Belullama Enhanced with automatic GPU detection and optimization:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/ai-joe-git/belullama-enhanced/main/installer-belullama.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ai-joe-git/belullama/main/installer-enhanced-belullama.sh | bash
 ```
 
 This intelligent installer will:
@@ -212,9 +212,9 @@ docker-compose logs [service-name]
 
 ### Support
 
-- 📖 Check our [Wiki](https://github.com/ai-joe-git/belullama-enhanced/wiki) for detailed guides
-- 🐛 Report bugs in [Issues](https://github.com/ai-joe-git/belullama-enhanced/issues)
-- 💬 Join community discussions in [Discussions](https://github.com/ai-joe-git/belullama-enhanced/discussions)
+- 📖 Check our [Wiki](https://github.com/ai-joe-git/belullama/wiki) for detailed guides
+- 🐛 Report bugs in [Issues](https://github.com/ai-joe-git/belullama/issues)
+- 💬 Join community discussions in [Discussions](https://github.com/ai-joe-git/belullama/discussions)
 
 ## License
 
@@ -222,7 +222,7 @@ Belullama Enhanced is released under the [MIT License](https://opensource.org/li
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ai-joe-git/belullama-enhanced&type=Date)](https://github.com/ai-joe-git/belullama-enhanced)
+[![Star History Chart](https://api.star-history.com/svg?repos=ai-joe-git/belullama&type=Date)](https://github.com/ai-joe-git/belullama)
 
 ## Sources & Credits
 
